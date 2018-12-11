@@ -122,6 +122,26 @@
   </div>
 
   <script>
+    //grab all panels
+    const panels = document.querySelectorAll('.panel');
+
+    //adds the .open class to all panels
+    function toggleOpen(){
+      this.classList.toggle('open');
+    }
+
+    //toggles class .active to panels
+    function toggleActive(e){
+      if(e.propertyName.includes('flex')){
+        this.classList.toggle('open-active');
+      }
+    }
+
+    //when clicked, toggle class open
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+
+    //when transition is done, animate words from up and down
+    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
 
   </script>
 
